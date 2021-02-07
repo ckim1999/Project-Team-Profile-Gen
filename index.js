@@ -10,24 +10,24 @@ const inquirer = require('inquirer');
 
 const userInput = [
     {
-        type = "input",
-        name = "team_man_name",
-        message = "Input your Team Manager's name: "
+        type: "input",
+        name: "team_man_name",
+        message: "Input your Team Manager's name: "
     },
     {
-        type = "input",
-        name = "employeeID",
-        message = "Input your employee ID: "
+        type: "input",
+        name: "employeeID",
+        message: "Input your employee ID: "
     },
     {
-        type = "input",
-        name = "email",
-        message = "Input your email address: "
+        type: "input",
+        name: "email",
+        message: "Input your email address: "
     },
     {
-        type = "input",
-        name = "office_num",
-        message = "Input your office number: "
+        type: "input",
+        name: "office_num",
+        message: "Input your office number: "
     },    
 ]
 
