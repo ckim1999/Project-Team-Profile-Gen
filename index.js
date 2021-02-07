@@ -72,3 +72,9 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
 }
 
 // USER INTERACTIONS ================================
+// use the inquirer function
+inquirer
+    .prompt(userInput)
+    .then(response => {
+        writeHTML(response);
+    })
