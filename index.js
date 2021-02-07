@@ -54,7 +54,7 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
     <h1>Team Profile Generator</h1>
     <div class="container">
         <!--created a card format to input my user's information-->
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 20rem; padding: 40px"">
             <div class="card-header">Team Manager Name: ${team_man_name}</div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Employee ID: ${employeeID}</li>
