@@ -32,4 +32,43 @@ const userInput = [
 ]
 
 // FUNCTIONS ========================================
+
+// create a function to hold the user's input
+const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
+    // puts user's input into the html
+    const info = `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile Generator</title>
+    <!--Link to Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!--Link to css file-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!--created a card format to input my user's information-->
+        <div class="card" style="width: 20rem;">
+            <div class="card-header">Team Manager Name: ${team_man_name}</div>
+            <ul>
+              <li class="list-group-item">Employee ID: ${employeeID}</li>
+              <li class="list-group-item">Email: ${email}</li>
+              <li class="list-group-item">Office Number: ${office_num}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>`
+    fs.writeFileSync("web.html", info, "utf8", (err) => {
+        if (err) {
+            console.error(err);
+        }
+        console.log("Information transfer complete");
+    });
+}
+
 // USER INTERACTIONS ================================
