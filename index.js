@@ -50,6 +50,8 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!--input header-->
+    <h1>Team Profile Generator</h1>
     <div class="container">
         <!--created a card format to input my user's information-->
         <div class="card" style="width: 20rem;">
