@@ -5,10 +5,6 @@ const fs = require('fs');
 // a program to output questions to the user
 const inquirer = require('inquirer');
 
-const options = [
-
-]
-
 // DATA =============================================
 // a list of instructions for the user to answer accordingly
 const nextArray = ["Add an Engineer", "Add an Intern", "Exit the Application"]
