@@ -1,0 +1,22 @@
+h1 {
+    background-color: orange;
+    padding: 20px;
+    text-align: center;
+}
+
+body {
+    background-color: lightblue;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    background-color: Blue;
+    color: white;
+}
+
+.list-group-item {
+    background-color: lightpink;
+}
