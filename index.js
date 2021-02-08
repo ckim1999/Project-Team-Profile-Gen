@@ -58,7 +58,7 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
             <div class="card-header">Team Manager Name: ${team_man_name}</div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Employee ID: ${employeeID}</li>
-              <li class="list-group-item">Email: ${email}</li>
+              <a href="${email}"><li class="list-group-item">Email: ${email}</li></a>
               <li class="list-group-item">Office Number: ${office_num}</li>
             </ul>
         </div>
