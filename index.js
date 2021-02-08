@@ -5,30 +5,45 @@ const fs = require('fs');
 // a program to output questions to the user
 const inquirer = require('inquirer');
 
+const options = [
+
+]
+
 // DATA =============================================
 // a list of instructions for the user to answer accordingly
+const nextArray = ["Add an Engineer", "Add an Intern", "Exit the Application"]
 
 const userInput = [
     {
-        type = "input",
-        name = "team_man_name",
-        message = "Input your Team Manager's name: "
+        // input manager's name
+        type: "input",
+        name: "team_man_name",
+        message: "Input your Team Manager's name: "
     },
     {
-        type = "input",
-        name = "employeeID",
-        message = "Input your employee ID: "
+        // input employee ID
+        type: "input",
+        name: "employeeID",
+        message: "Input your employee ID: "
     },
     {
-        type = "input",
-        name = "email",
-        message = "Input your email address: "
+        // input email address
+        type: "input",
+        name: "email",
+        message: "Input your email address: "
     },
     {
-        type = "input",
-        name = "office_num",
-        message = "Input your office number: "
-    },    
+        // input office number
+        type: "input",
+        name: "office_num",
+        message: "Input your office number: "
+    },
+    {
+        type: "checkbox",
+        name: "options",
+        message: "What do you want to do next?",
+        choices: nextArray,
+    }    
 ]
 
 // FUNCTIONS ========================================
@@ -72,6 +87,7 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
 }
 
 // USER INTERACTIONS ================================
+
 // use the inquirer function
 inquirer
     .prompt(userInput)
