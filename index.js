@@ -94,7 +94,7 @@ inquirer
     .then(response => {
         // if the user was to select the first option in the list
         if (response.options === nextArray[0]) {
-            console.log("You chose to fill out an Engineer form");
+            console.log("\n" + "You chose to fill out an Engineer form" + "\n");
             // saving a function named engineer that takes a list of questions and then asks them via inquirer
             var engineer = engineer_questions => inquirer.prompt(engineer_questions);
             // user picks engineer a list of questions will be need be answered to generate the profile for an engineer
@@ -122,13 +122,60 @@ inquirer
                     type: "input",
                     name: "GitHub",
                     message: "Input engineer's GitHub username: "
+                },
+                {
+                    // provide user with options for what they want to do next
+                    type: "list",
+                    name: "options",
+                    message: "What do you want to do next?",
+                    choices: nextArray,
+                    default: "Add an Engineer"
                 }
             ];
             engineer(engineer_questions);
         // if the user was to select the second option in the list
         } else if (response.options === nextArray[1]) {
-            console.log("You chose to fill out an Intern form");
+            console.log("\n" + "You chose to fill out an Intern form" + "\n");
+            // saving a function named engineer that takes a list of questions and then asks them via inquirer
+            var intern = intern_questions => inquirer.prompt(intern_questions);
+            var intern_questions = intern_questions = [
+                {
+                    // input intern's name
+                    type: "input",
+                    name: "intern",
+                    message: "Input intern's name: "
+                },
+                {
+                    // input intern's ID
+                    type: "input",
+                    name: "internID",
+                    message: "Input intern's ID: "
+                },
+                {
+                    // input intern's name
+                    type: "input",
+                    name: "internMail",
+                    message: "Input intern's email address: "
+                },
+                {
+                    // input engineer's name
+                    type: "input",
+                    name: "school",
+                    message: "Input the intern's school: "
+                },
+                {
+                    // provide user with options for what they want to do next
+                    type: "list",
+                    name: "options",
+                    message: "What do you want to do next?",
+                    choices: nextArray,
+                    default: "Add an Engineer"
+                }
+            ];
+            intern(intern_questions);
         } else {
+            // close the application
+            console.log("this application will close now");
             process.exit();
         }
         writeHTML(response);
