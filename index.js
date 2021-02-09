@@ -35,10 +35,12 @@ const userInput = [
         message: "Input your office number: "
     },
     {
-        type: "checkbox",
+        // provide user with options for what they want to do next
+        type: "list",
         name: "options",
         message: "What do you want to do next?",
         choices: nextArray,
+        default: "Add an Engineer"
     }      
 ]
 
@@ -90,5 +92,45 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
 inquirer
     .prompt(userInput)
     .then(response => {
+        // if the user was to select the first option in the list
+        if (response.options === nextArray[0]) {
+            console.log("You chose to fill out an Engineer form");
+            // saving a function named engineer that takes a list of questions and then asks them via inquirer
+            var engineer = engineer_questions => inquirer.prompt(engineer_questions);
+            // user picks engineer a list of questions will be need be answered to generate the profile for an engineer
+            var engineer_questions = engineer_questions = [
+                {
+                    // input engineer's name
+                    type: "input",
+                    name: "engine",
+                    message: "Input engineer's name: "
+                },
+                {
+                    // input engineer's ID
+                    type: "input",
+                    name: "engineID",
+                    message: "Input engineer's ID: "
+                },
+                {
+                    // input engineer's name
+                    type: "input",
+                    name: "engineMail",
+                    message: "Input engineer's email address: "
+                },
+                {
+                    // input engineer's name
+                    type: "input",
+                    name: "GitHub",
+                    message: "Input engineer's GitHub username: "
+                }
+            ];
+            engineer(engineer_questions);
+        // if the user was to select the second option in the list
+        } else if (response.options === nextArray[1]) {
+            console.log("You chose to fill out an Intern form");
+        } else {
+            process.exit();
+        }
         writeHTML(response);
+
     })
