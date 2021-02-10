@@ -44,10 +44,45 @@ const userInput = [
     }      
 ]
 
+const enginequestion = [
+    {
+        // input engineer's name
+        type: "input",
+        name: "engine",
+        message: "Input engineer's name: "
+    },
+    {
+        // input engineer's ID
+        type: "input",
+        name: "engineID",
+        message: "Input engineer's ID: "
+    },
+    {
+        // input engineer's name
+        type: "input",
+        name: "engineMail",
+        message: "Input engineer's email address: "
+    },
+    {
+        // input engineer's name
+        type: "input",
+        name: "GitHub",
+        message: "Input engineer's GitHub username: "
+    },
+    {
+        // provide user with options for what they want to do next
+        type: "list",
+        name: "options",
+        message: "What do you want to do next?",
+        choices: nextArray,
+        default: "Add an Engineer"
+    }
+]
+
 // FUNCTIONS ========================================
 
 // create a function to hold the user's input
-const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
+const writeHTML = ({team_man_name, employeeID, email, office_num, engine, engineID, engineMail, GitHub, intern, internID, internMail, school}) => {
     // puts user's input into the html
     const info = `
     <!DOCTYPE html>
@@ -75,10 +110,28 @@ const writeHTML = ({team_man_name, employeeID, email, office_num}) => {
               <li class="list-group-item">Office Number: ${office_num}</li>
             </ul>
         </div>
+        <!--created a card format to input my user's information-->
+        <div class="card" style="width: 20rem; padding: 40px"">
+            <div class="card-header">Engineer Name: ${engine}</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Engineer ID: ${engineID}</li>
+                <a href="${engineMail}"><li class="list-group-item">Email: ${engineMail}</li></a>
+                <li class="list-group-item">GitHub: ${GitHub}</li>
+            </ul>
+        </div>
+        <!--created a card format to input my user's information-->
+        <div class="card" style="width: 20rem; padding: 40px"">
+            <div class="card-header">Intern Name: ${intern}</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Intern ID: ${internID}</li>
+                <a href="${internMail}"><li class="list-group-item">Email: ${internMail}</li></a>
+                <li class="list-group-item">School: ${school}</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>`
-    fs.writeFileSync("web.html", info, "utf8", (err) => {
+    fs.writeFileSync("manager.html", info, "utf8", (err) => {
         if (err) {
             console.error(err);
         }
@@ -98,40 +151,7 @@ inquirer
             // saving a function named engineer that takes a list of questions and then asks them via inquirer
             var engineer = engineer_questions => inquirer.prompt(engineer_questions);
             // user picks engineer a list of questions will be need be answered to generate the profile for an engineer
-            var engineer_questions = engineer_questions = [
-                {
-                    // input engineer's name
-                    type: "input",
-                    name: "engine",
-                    message: "Input engineer's name: "
-                },
-                {
-                    // input engineer's ID
-                    type: "input",
-                    name: "engineID",
-                    message: "Input engineer's ID: "
-                },
-                {
-                    // input engineer's name
-                    type: "input",
-                    name: "engineMail",
-                    message: "Input engineer's email address: "
-                },
-                {
-                    // input engineer's name
-                    type: "input",
-                    name: "GitHub",
-                    message: "Input engineer's GitHub username: "
-                },
-                {
-                    // provide user with options for what they want to do next
-                    type: "list",
-                    name: "options",
-                    message: "What do you want to do next?",
-                    choices: nextArray,
-                    default: "Add an Engineer"
-                }
-            ];
+            var engineer_questions = engineer_questions = (enginequestion);
             engineer(engineer_questions);
         // if the user was to select the second option in the list
         } else if (response.options === nextArray[1]) {
