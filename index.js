@@ -158,7 +158,7 @@ inquirer
                     message: "Input intern's email address: "
                 },
                 {
-                    // input engineer's name
+                    // input intern's school
                     type: "input",
                     name: "school",
                     message: "Input the intern's school: "
